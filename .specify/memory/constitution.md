@@ -1,52 +1,50 @@
-<!--
-- Version change: None -> 1.0.0
-- Added sections: Core Principles, Technology & Architecture, Development Practices, Governance
-- Modified principles: N/A (initial creation)
-- Removed sections: N/A (initial creation)
-- Templates requiring updates: None
-- Follow-up TODOs: None
--->
-
-# GyaanSetu Backend Constitution
+# [PROJECT_NAME] Constitution
+<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
 
 ## Core Principles
 
-### I. API-First and RESTful Design
-All features must be exposed via a well-defined RESTful API. Development shall adhere to the API Design Principles outlined in the PRD, including Richardson Maturity Model Level 2, standard HTTP verb usage, and clear resource naming conventions (`/api/v1/resource`).
+### [PRINCIPLE_1_NAME]
+<!-- Example: I. Library-First -->
+[PRINCIPLE_1_DESCRIPTION]
+<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
 
-### II. Layered and Modular Architecture
-The codebase must strictly follow the layered architecture (Routes, Controllers, Services, Models). Business logic must be encapsulated within the Services layer, completely separate from controller and database model implementations to ensure separation of concerns and maintainability.
+### [PRINCIPLE_2_NAME]
+<!-- Example: II. CLI Interface -->
+[PRINCIPLE_2_DESCRIPTION]
+<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
 
-### III. Type Safety and Code Quality (NON-NEGOTIABLE)
-All code must be written in TypeScript with strict typing. Runtime validation using libraries like Zod is mandatory for all incoming request data (bodies, params, queries) at the controller or middleware layer. Code must adhere to the project's ESLint and Prettier configurations.
+### [PRINCIPLE_3_NAME]
+<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
+[PRINCIPLE_3_DESCRIPTION]
+<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
 
-### IV. Offline-First and Low-Bandwidth by Design
-Every endpoint and data structure must be designed with offline synchronization and low-bandwidth environments in mind. This includes support for bulk/batch operations, response field filtering (`?fields=...`), and pagination to minimize data transfer. This is a primary requirement for serving our users.
+### [PRINCIPLE_4_NAME]
+<!-- Example: IV. Integration Testing -->
+[PRINCIPLE_4_DESCRIPTION]
+<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
 
-### V. Comprehensive Testing
-A test-first approach is highly encouraged. All new business logic in the service layer must be covered by unit tests (Jest). All API endpoints must have corresponding integration tests (Supertest) that validate the request/response cycle, authentication, and error handling.
+### [PRINCIPLE_5_NAME]
+<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
+[PRINCIPLE_5_DESCRIPTION]
+<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
 
-## Technology & Architecture
+## [SECTION_2_NAME]
+<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
 
-### Tech Stack
-The project must use the established technology stack unless an amendment to this constitution is approved. The stack includes Node.js (v22+), Express.js (v5+), TypeScript, MongoDB (v7+), and Mongoose (v9+). All services must be containerized using Docker for environment consistency.
+[SECTION_2_CONTENT]
+<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
 
-### System Architecture
-The system will follow the high-level architecture defined in the PRD, including the API Gateway, Application Layer, Data Layer, and integration with external services like AWS S3 and CloudFront. Changes to this core architecture require a formal review.
+## [SECTION_3_NAME]
+<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
 
-## Development Practices
-
-### Versioning
-The API will use URL-based versioning (e.g., `/api/v1`, `/api/v2`). Any change that is not backward-compatible requires a new API version.
-
-### Code Reviews
-All code must be reviewed via a Pull Request before being merged into the main branch. Reviews must verify compliance with all principles in this constitution.
-
-### Documentation
-API endpoints must be documented using OpenAPI/Swagger. Complex business logic within services should be accompanied by clear comments explaining the 'why', not the 'what'.
+[SECTION_3_CONTENT]
+<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
 
 ## Governance
+<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-This constitution is the single source of truth for all development standards and practices. It supersedes any other informal agreements. Amendments to this document require a Pull Request, team review, and approval from the project stakeholders. All development activity, PRs, and reviews must verify compliance with this constitution.
+[GOVERNANCE_RULES]
+<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
 
-**Version**: 1.0.0 | **Ratified**: 2025-12-25 | **Last Amended**: 2025-12-25
+**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
+<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->

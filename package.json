@@ -8,6 +8,8 @@
     "dev": "node --watch --env-file=.env --import=tsx src/Server.ts"
   },
   "dependencies": {
+    "@anthropic-ai/claude-code": "^2.0.76",
+    "cli-cursor": "^5.0.0",
     "express": "^4.19.2",
     "mongoose": "^8.4.0",
     "tsx": "^4.21.0",
