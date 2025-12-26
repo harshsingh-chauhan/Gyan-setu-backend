@@ -1,19 +1,7 @@
-/**
- * Main Router
- *
- * Aggregates all route modules and exports a single router
- * to be mounted on the Express application.
- *
- * API Base: /api/v1
- *
- * Available endpoints:
- * - /api/v1/health     - Health check
- * - /api/v1/lessons    - Lesson CRUD
- */
-
 import { Router, Request, Response } from 'express';
 import lessonRouter from './Lesson/Lesson.route';
 import quizRouter from './Quiz/Quiz.route'; // Import QuizRouter
+import authRouter from './Auth/Auth.route'; // Import AuthRouter
 
 const router = Router();
 
@@ -21,6 +9,10 @@ const router = Router();
 // Health Check
 // ============================================================================
 /**
+ * @route   GET /api/v1/health
+ * @desc    Check if API is running
+ * @access  Public
+ *//**
  * @route   GET /api/v1/health
  * @desc    Check if API is running
  * @access  Public
@@ -43,5 +35,8 @@ router.use('/lessons', lessonRouter);
 
 // Quiz Routes
 router.use('/quizzes', quizRouter); // Mount QuizRouter
+
+// Auth Routes
+router.use('/auth', authRouter); // Mount AuthRouter
 
 export default router;

@@ -23,10 +23,10 @@
 
 **Purpose**: Project initialization and core security dependencies.
 
-- [ ] T001 Install dependencies: `npm install jsonwebtoken bcryptjs`
+- [X] T001 Install dependencies: `npm install jsonwebtoken bcryptjs`
 - [ ] T002 Configure environment variables in `.env` (`JWT_SECRET`, `JWT_REFRESH_SECRET`)
-- [ ] T003 [P] Create `AuditLog` model in `src/models/AuditLog.model.ts`
-- [ ] T004 [P] Create `School` model in `src/models/School.model.ts`
+- [X] T003 [P] Create `AuditLog` model in `src/models/AuditLog.model.ts`
+- [X] T004 [P] Create `School` model in `src/models/School.model.ts`
 
 ---
 
@@ -34,11 +34,11 @@
 
 **Purpose**: Core infrastructure needed for all authentication flows.
 
-- [ ] T005 [P] Create `User` model with lockout fields in `src/models/User.model.ts`
-- [ ] T006 [P] Implement `Auth.schema.ts` with Zod validation in `src/validation/schemas/Auth.schema.ts`
-- [ ] T007 Implement base `Auth.service.ts` with password hashing utility in `src/services/Auth.service.ts`
-- [ ] T008 [P] Setup `Auth.controller.ts` structure in `src/controller/Auth.controller.ts`
-- [ ] T009 [P] Setup `Auth.route.ts` and register in `src/routes/index.ts`
+- [X] T005 [P] Create `User` model with lockout fields in `src/models/User.model.ts`
+- [X] T006 [P] Implement `Auth.schema.ts` with Zod validation in `src/validation/schemas/Auth.schema.ts`
+- [X] T007 Implement base `Auth.service.ts` with password hashing utility in `src/services/Auth.service.ts`
+- [X] T008 [P] Setup `Auth.controller.ts` structure in `src/controller/Auth.controller.ts`
+- [X] T009 [P] Setup `Auth.route.ts` and register in `src/routes/index.ts`
 
 **Checkpoint**: Foundation ready - Authentication flows can now be implemented.
 
@@ -52,15 +52,15 @@
 
 ### Tests for User Story 1 ⚠️
 
-- [ ] T010 [P] [US1] Create integration test for registration in `tests/integration/auth.api.test.ts`
-- [ ] T011 [P] [US1] Create unit test for registration logic in `tests/unit/auth.service.test.ts`
+- [X] T010 [P] [US1] Create integration test for registration in `tests/integration/auth.api.test.ts`
+- [X] T011 [P] [US1] Create unit test for registration logic in `tests/unit/auth.service.test.ts`
 
 ### Implementation for User Story 1
 
-- [ ] T012 [US1] Implement school code validation logic in `src/services/Auth.service.ts`
-- [ ] T013 [US1] Implement student registration logic with AuditLog (REGISTER) in `src/services/Auth.service.ts`
-- [ ] T014 [US1] Implement `register` controller method in `src/controller/Auth.controller.ts`
-- [ ] T015 [US1] Map registration route in `src/routes/Auth/Auth.route.ts`
+- [X] T012 [US1] Implement school code validation logic in `src/services/Auth.service.ts`
+- [X] T013 [US1] Implement student registration logic with AuditLog (REGISTER) in `src/services/Auth.service.ts`
+- [X] T014 [US1] Implement `register` controller method in `src/controller/Auth.controller.ts`
+- [X] T015 [US1] Map registration route in `src/routes/Auth/Auth.route.ts`
 
 **Checkpoint**: User Story 1 functional - Students can register.
 
@@ -74,15 +74,15 @@
 
 ### Tests for User Story 2 ⚠️
 
-- [ ] T016 [P] [US2] Add integration tests for login and lockout to `tests/integration/auth.api.test.ts`
-- [ ] T017 [P] [US2] Add unit tests for lockout logic to `tests/unit/auth.service.test.ts`
+- [X] T016 [P] [US2] Add integration tests for login and lockout to `tests/integration/auth.api.test.ts`
+- [X] T017 [P] [US2] Add unit tests for lockout logic to `tests/unit/auth.service.test.ts`
 
 ### Implementation for User Story 2
 
-- [ ] T018 [US2] Implement login logic with lockout check and AuditLog (LOGIN_SUCCESS/FAILURE) in `src/services/Auth.service.ts`
-- [ ] T019 [US2] Implement single-session enforcement (invalidate/overwrite refreshToken) in `src/services/Auth.service.ts`
-- [ ] T020 [US2] Implement `login` controller method in `src/controller/Auth.controller.ts`
-- [ ] T021 [US2] Map login route in `src/routes/Auth/Auth.route.ts`
+- [X] T018 [US2] Implement login logic with lockout check and AuditLog (LOGIN_SUCCESS/FAILURE) in `src/services/Auth.service.ts`
+- [X] T019 [US2] Implement single-session enforcement (invalidate/overwrite refreshToken) in `src/services/Auth.service.ts`
+- [X] T020 [US2] Implement `login` controller method in `src/controller/Auth.controller.ts`
+- [X] T021 [US2] Map login route in `src/routes/Auth/Auth.route.ts`
 
 **Checkpoint**: User Story 2 functional - Secure login and lockout active.
 
