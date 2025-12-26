@@ -17,11 +17,14 @@ app.use('/api/v1', mainRouter); // Mount the main router
 
 let server: http.Server;
 
-const startServer = async (dbUri?: string) => {
+const startServer = async (dbUri?: string, portOverride?: number) => {
     try {
         await connectDB(dbUri);
+        const port = portOverride !== undefined ? portOverride : (process.env.PORT || 3000);
         server = app.listen(port, () => {
-            console.log(`server started on port: http://localhost:${port}`);
+            if (portOverride !== 0) { // Don't log for random port
+                console.log(`server started on port: http://localhost:${port}`);
+            }
         });
         return server;
     } catch (error) {
