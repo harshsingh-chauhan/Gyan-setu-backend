@@ -30,7 +30,7 @@
 **Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented.
 
 - [X] T001 [P] Create Mongoose model file for `Quiz` in `src/models/quiz/Quiz.model.ts`.
-- [ ] T002 [P] Create Zod validation schema file `Quiz.schema.ts` in `src/validation/schemas/`.
+- [X] T002 [P] Create Zod validation schema file `Quiz.schema.ts` in `src/validation/schemas/`.
 - [ ] T003 [P] Create base `Quiz.controller.ts` file in `src/controller/`.
 - [ ] T004 [P] Create base `Quiz.service.ts` file in `src/services/`.
 - [ ] T005 [P] Create route file `Quiz.route.ts` in `src/routes/Quiz/`.
