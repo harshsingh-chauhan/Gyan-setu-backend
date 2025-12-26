@@ -1,3 +1,4 @@
+import { Router, Request, Response } from 'express';
 import lessonRouter from './Lesson/Lesson.route';
 import quizRouter from './Quiz/Quiz.route'; // Import QuizRouter
 import authRouter from './Auth/Auth.route'; // Import AuthRouter

@@ -1,13 +1,13 @@
 import express from 'express';
+import http from 'http';
 import mainRouter from './routes'; // Import the main router
-import { connectDB } from './config/database'; // Import the connectDB function
+import { connectDB, disconnectDB } from './config/database'; // Import the connectDB and disconnectDB functions
 
 const app = express();
 
 app.use(express.json());
 
-
-const port = process.env.PORT ;
+const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
     res.send('Hello, World!');
@@ -15,16 +15,39 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1', mainRouter); // Mount the main router
 
-const startServer = async () => {
+let server: http.Server;
+
+const startServer = async (dbUri?: string) => {
     try {
-        await connectDB();
-        app.listen(port, () => {
+        await connectDB(dbUri);
+        server = app.listen(port, () => {
             console.log(`server started on port: http://localhost:${port}`);
         });
+        return server;
     } catch (error) {
         console.error('Failed to start server:', error);
         process.exit(1);
     }
 };
 
-startServer();
+const closeServer = async () => {
+    await disconnectDB();
+    return new Promise<void>((resolve, reject) => {
+        if (server) {
+            server.close((err) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve();
+            });
+        } else {
+            resolve();
+        }
+    });
+};
+
+if (require.main === module) {
+    startServer();
+}
+
+export { app, startServer, closeServer };

@@ -60,8 +60,13 @@ const MONGO_URI =
  *   console.error('Failed to connect to database');
  * }
  */
-export async function connectDB(): Promise<void> {
+export async function connectDB(uri?: string): Promise<void> {
+    if (mongoose.connection.readyState === 1) {
+        return;
+    }
+    
     try {
+        const connectionUri = uri || MONGO_URI;
         /*
          * Set up connection event handlers.
          *
@@ -104,7 +109,7 @@ export async function connectDB(): Promise<void> {
          * mongoose.connect() returns a Promise that resolves when connected.
          * If the connection fails, it throws an error which we catch below.
          */
-        await mongoose.connect(MONGO_URI);
+        await mongoose.connect(connectionUri);
     } catch (error) {
         /*
          * If we can't connect to the database, there's no point continuing.
@@ -113,5 +118,11 @@ export async function connectDB(): Promise<void> {
          */
         console.error('❌ Failed to connect to MongoDB:', error);
         process.exit(1);
+    }
+}
+
+export async function disconnectDB(): Promise<void> {
+    if (mongoose.connection.readyState !== 0) {
+        await mongoose.connection.close();
     }
 }
