@@ -38,7 +38,7 @@
 - [ ] T006 [P] Implement `Auth.schema.ts` with Zod validation in `src/validation/schemas/Auth.schema.ts`
 - [X] T007 Implement base `Auth.service.ts` with password hashing utility in `src/services/Auth.service.ts`
 - [X] T008 [P] Setup `Auth.controller.ts` structure in `src/controller/Auth.controller.ts`
-- [ ] T009 [P] Setup `Auth.route.ts` and register in `src/routes/index.ts`
+- [X] T009 [P] Setup `Auth.route.ts` and register in `src/routes/index.ts`
 
 **Checkpoint**: Foundation ready - Authentication flows can now be implemented.
 
